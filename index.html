@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>What Are They Thinking?</title>
+    <!-- Import JsPsych CSS -->
+    <!-- Import JsPsych Library -->
+    <script src="https://unpkg.com/jspsych@8.0.0"></script>
+    <!-- Import JsPsych Plugins -->
+    <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.2.0"></script>
+    <script src="js/plugin-multi-image-button-response.js"></script>
+
+    <script src="https://unpkg.com/@jspsych/plugin-image-button-response@1.2.0"></script>
+
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.3"></script>
+
+    <script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.3"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-survey-multi-choice@1.1.3"></script>
+    
+    <script src="https://unpkg.com/@jspsych/plugin-initialize-camera@1.0.2"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-initialize-microphone@1.0.3"></script>
+
+    <script src="https://unpkg.com/@jspsych/plugin-html-audio-response@1.0.3"></script>
+
+    <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
+    <script src="js/s3.js"></script>
+    <script src="js/experimental_variables.js"></script>
+    <script src="js/experiment_generator_util.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            font-family: "Delius Unicase", cursive;
+        }
+
+        button,option,select {
+            font-family: "Delius Unicase", cursive !important;
+        }
+        
+        button {
+            font-size: 10px !important;
+        }
+        
+
+        body {
+            font-family: "Delius Unicase", cursive;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="jspsych-target">
+        <h1 class="title">What Are They Thinking?</h1>
+    </div>
+
+    <script>
+
+        let recordedChunks = [];
+
+        function getOrdinalPage(num) {
+            if (num < 1 || num > 10 || !Number.isInteger(num)) {
+                throw new Error("Input must be an integer between 1 and 10.");
+            }
+            
+            const ordinals = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth"];
+            
+            return `${ordinals[num - 1]} Page`;
+        }
+
+        function handleDataAvailable(event) {
+            console.log("Attempting to handle data with size: " + event.data.size);
+            if (event.data.size > 0) {
+                recordedChunks.push(event.data);
+                console.log('Data available:', event.data);
+            }
+        }
+
+        function handleStop() {
+            const recordedBlob = new Blob(recordedChunks, { type: 'video/webm' });
+            const videoUrl = URL.createObjectURL(recordedBlob);
+
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = videoUrl;
+            console.log("Downloading this video... " + videoUrl);
+            var subjID = 'defaultID'; // Replace this with actual participantID if available
+            a.download = 'recorded-video' + subjID + '.webm';
+            document.body.appendChild(a);
+            a.click();
+
+            window.URL.revokeObjectURL(videoUrl);
+            recordedChunks = [];
+            console.log("STOP HANDLED!");
+
+            uploadVideo(uuidStr,recordedBlob);
+        }
+
+        function stopRecording() {
+            mediaRecorder.stop();
+        }
+        
+        // Experiment configuration object
+        const experimentConfig = [
+            {
+                type:'hello',
+                prompt:"Welcome to the experiment!"
+            }
+        ];
+
+        console.log(v);
+
+        //populateExperimentConfig(experimentConfig);
+
+
+        // experimentConfig.push({
+        //                 type: 'multiple-choice-image',
+        //                 stimulus: "images/v1_one_page.png",
+        //                 options: ["images/v1_q1_o1.jpg","images/v1_q1_o2.jpg"],
+        //                 prompt: `Testing in between frames`
+        //             });
+        
+
+        // experimentConfig.push({
+        //             type: 'audio-input-goodbye',
+        //             prompt: 'Readability test',
+        //             buttonText: 'Submit'
+        //         });
+
+
+        // Generate the timeline by mapping the experiment config to trials
+
+        var initializeCamera = {
+            type: jsPsychInitializeCamera,
+            on_finish: function (data) {
+
+                console.log(data.device_id);
+
+                console.log(jsPsych.pluginAPI.getCameraRecorder().stream);
+
+                // navigator.mediaDevices
+                //     .enumerateDevices()
+                //     .then((devices) => {
+                //     devices.forEach((device) => {
+                //         console.log(`${device.kind}: ${device.label} id = ${device.deviceId}`);
+                //     });
+                //     })
+                //     .catch((err) => {
+                //     console.log(`${err.name}: ${err.message}`);
+                // });
+
+                jsPsych.pluginAPI.getCameraRecorder().ondataavailable = handleDataAvailable;
+                jsPsych.pluginAPI.getCameraRecorder().onstop = handleStop;
+
+                jsPsych.pluginAPI.getCameraRecorder().onstart = () => {
+                    console.log('jsPsych.pluginAPI.getCameraRecorder() started');
+                };
+
+                jsPsych.pluginAPI.getCameraRecorder().onpause = () => {
+                    console.log('jsPsych.pluginAPI.getCameraRecorder() paused');
+                };
+
+                jsPsych.pluginAPI.getCameraRecorder().onresume = () => {
+                    console.log('jsPsych.pluginAPI.getCameraRecorder() resumed');
+                };
+
+                jsPsych.pluginAPI.getCameraRecorder().onerror = (event) => {
+                    console.error('jsPsych.pluginAPI.getCameraRecorder() error:', event.error);
+                };
+
+                // document.getElementById("myVideo").srcObject = cameraStream;
+                jsPsych.pluginAPI.getCameraRecorder().start(1000); // Request data every second
+                console.log("Created new mediaRecorder:", jsPsych.pluginAPI.getCameraRecorder());
+            }
+        };
+
+        var initializeMicrophone = {
+            type: jsPsychInitializeMicrophone
+        };
+
+        const pre_experiment = [initializeCamera, initializeMicrophone];
+
+        var trials = [];
+
+        populateExperimentTimeline(trials);
+
+        timeline = pre_experiment.concat(trials);
+
+        // timeline = [initializeCamera, initializeMicrophone,
+
+        //             {
+        //         timeline: [
+        //             {
+        //                 type: jsPsychHtmlButtonResponse,
+        //                 stimulus: 'The next page will record your voice. Please speak your answer to this question: (question). Click the button below to continue.',
+        //                 button_html: [`<button class="jspsych-btn">Continue</button>`],
+        //                 choices: ['Continue'],                    
+        //             },
+        //             {
+        //                 type: jsPsychHtmlAudioResponse,
+        //                 stimulus: 'Recording...',
+        //                 show_done_button: true,
+        //                 done_button_label: 'Stop Recording',
+        //                 allow_playback: true,
+        //                 recording_duration: 60 * 1000,
+        //                 on_finish: function(data) {
+        //                     console.log('User input:', data.response);
+        //                 }
+        //             }
+        //         ]
+        //     }
+        // ]
+
+        // Initialize JsPsych with the dynamically generated timeline
+        const jsPsych = initJsPsych({
+          display_element: 'jspsych-target', 
+        });
+
+        
+
+        jsPsych.run(timeline)
+    </script>
+</body>
+</html>
