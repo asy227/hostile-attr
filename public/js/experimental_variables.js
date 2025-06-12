@@ -22,17 +22,17 @@ var v1_q = [
         type: 'multiple-choice-image',
         prompt: 'Do you think that he spilled his drink all over you on purpose or on accident?',
         options: [ 
-            'images/purpose.jpg', 
-            'images/accident.jpg',
-            'images/question.jpg'
+            'images/purpose.png', 
+            'images/accident.png',
+            'images/question.png'
         ]
     },
     {
         type: 'multiple-choice-image',
         prompt: 'Ignore it',
         options: [ //CHANGE TO CORRRECT IMAGES
-            'images/no_answer.jpg',//no
-            'images/maybe_answer.jpg',//maybe
+            'images/no_answer.png',//no
+            'images/maybe_answer.png',//maybe
             'images/yes_answer.jpg'//yes
         ]
     },
@@ -40,21 +40,23 @@ var v1_q = [
         type: 'multiple-choice-image',
         prompt: 'Say something mean back',
         options: [
-            'images/no_answer.jpg',//no
-            'images/maybe_answer.jpg',//maybe
-            'images/yes_answer.jpg'//yes
+            'images/no_answer.png',//no
+            'images/maybe_answer.png',//maybe
+            'images/yes_answer.png'//yes
         ]
     }, 
     {
         type: 'multiple-choice-image',
         prompt: 'Tell a teacher',
         options: [ 
-            'images/no_answer.jpg',//no
-            'images/maybe_answer.jpg',//maybe
-            'images/yes_answer.jpg'//yes
+            'images/no_answer.png',//no
+            'images/maybe_answer.png',//maybe
+            'images/yes_answer.png'//yes
         ]
     }, 
-    /*{ //asked to record voice but you dont need this for hostile attr
+    
+    //asked to record voice but you dont need this for hostile attr
+    /*{ 
         type: 'audio-input',
         prompt: 'Why does Lisa think this?'
     },*/
