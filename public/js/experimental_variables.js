@@ -64,7 +64,7 @@ var v1 = {
     content: v1_images,
     questions: v1_q
 }
-/*
+
 var v2_text = [
     "Okay, now this next story is about football. Johnny and Bob are best friends. They really enjoy playing football together. Johnny and Bob both want to play on the school football team. The school football team plays every Monday after school.",
     "Johnny thinks that he is not as good at football as Bob is. He thinks that the football manager is more likely to choose Bob for the football team.",
@@ -268,5 +268,3 @@ var rmie = {
 }
 
 var v = [v1,v2,v3,v4,v5];
-
-*/
