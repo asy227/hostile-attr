@@ -1,112 +1,102 @@
 const express = require('express');
-const { S3Client, PutObjectCommand,ListObjectsCommand, GetObjectCommand } = require('@aws-sdk/client-s3');
+const AWS = require('aws-sdk'); // Using AWS SDK v2 instead of v3
 const bodyParser = require('body-parser');
 const stream = require('stream');
-const { parse } = require('csv-parse/sync'); // Library for parsing CSV
-const csv = require('csv-parser'); // CSV parser for handling CSV files
-const { stringify } = require('csv-stringify/sync'); // Library for converting back to CSV
-const { v4: uuidv4 } = require('uuid'); // UUID library
-const { Upload } = require("@aws-sdk/lib-storage");
-
-
-
-
+const csvParse = require('csv-parse'); // Different import for older version
+const csvStringify = require('csv-stringify'); // Different import for older version
+const uuidv4 = require('uuid/v4'); // Different import for older UUID version
 const app = express();
 const port = process.env.PORT || 3000;
 
-const s3 = new S3Client({
-    region: 'us-east-2' // Specify your region
-});
-
+// Configure AWS SDK v2
+AWS.config.update({ region: 'us-east-2' });
+const s3 = new AWS.S3();
 const bucketName = 'cheeselehigh';
 
 app.use(express.json());
 app.use(express.static("public"));
 app.use(bodyParser.raw({ type: 'application/octet-stream', limit: '256gb' }));
 
-
 // Serve the HTML file
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-
-app.get('/uuid',(req,res) => {
+app.get('/uuid', (req, res) => {
     const uuidStr = uuidv4();
     res.send(uuidStr);
 });
-
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
 
-
-
 // Handle video upload
-app.post('/upload/video', async (req, res) => {
+app.post('/upload/video', (req, res) => {
     const video_dir = req.body.userUUID + '/';
-    const fileName = video_dir + `recorded-video-${Date.now()}.webm`; // Generate a unique file name
+    const fileName = video_dir + `recorded-video-${Date.now()}.webm`;
 
-    try {
-        const params = {
-            Bucket: bucketName,
-            Key: fileName,
-            Body: req.body,
-            ContentType: 'video/webm', // Change this if your video is in a different format
-        };
+    const params = {
+        Bucket: bucketName,
+        Key: fileName,
+        Body: req.body,
+        ContentType: 'video/webm',
+    };
 
-        const data = await s3.send(new PutObjectCommand(params));
+    s3.upload(params, (err, data) => {
+        if (err) {
+            console.error('Error uploading video:', err);
+            return res.status(500).json({ error: 'Error uploading video', details: err });
+        }
         res.json({ message: 'Video uploaded successfully', data });
-    } catch (err) {
-        console.error('Error uploading video:', err);
-        res.status(500).json({ error: 'Error uploading video', details: err });
-    }
+    });
 });
 
-app.post('/upload/data', async (req, res) => {
+app.post('/upload/data', (req, res) => {
     const data_dir = `${req.body.userUUID}/`;
+    const fileName = data_dir + `atom.csv`;
 
-    console.log("Server: " + req.body.userUUID)
-
-    const fileName = data_dir + `atom.csv`; // Generate a unique file name
-
-    try {
-        // Parse the CSV string into rows
-        let records = parse(req.body.csvString, { columns: true });
+    csvParse(req.body.csvString, { columns: true }, (parseErr, records) => {
+        if (parseErr) {
+            console.error('Error parsing CSV:', parseErr);
+            return res.status(500).json({ error: 'Error parsing CSV', details: parseErr });
+        }
 
         // Add the 'participantUUID' column to each row
         records = records.map(row => ({
             ...row,
-            participantUUID: req.body.userUUID // Add the new UUID for each row
+            participantUUID: req.body.userUUID
         }));
 
-        // Convert the updated data back to CSV format
-        const updatedCsvString = stringify(records, { header: true });
+        csvStringify(records, { header: true }, (stringifyErr, updatedCsvString) => {
+            if (stringifyErr) {
+                console.error('Error stringifying CSV:', stringifyErr);
+                return res.status(500).json({ error: 'Error converting to CSV', details: stringifyErr });
+            }
 
-        // Set up the S3 upload parameters
-        const params = {
-            Bucket: bucketName,
-            Key: fileName,
-            Body: updatedCsvString,
-            ContentType: 'text/csv',
-        };
+            const params = {
+                Bucket: bucketName,
+                Key: fileName,
+                Body: updatedCsvString,
+                ContentType: 'text/csv',
+            };
 
-        // Upload the CSV to S3
-        const data = await s3.send(new PutObjectCommand(params));
-        res.json({ message: 'Data uploaded successfully', data });
-    } catch (err) {
-        console.error('Error uploading data:', err);
-        res.status(500).json({ error: 'Error uploading data', details: err });
-    }
+            s3.upload(params, (uploadErr, data) => {
+                if (uploadErr) {
+                    console.error('Error uploading data:', uploadErr);
+                    return res.status(500).json({ error: 'Error uploading data', details: uploadErr });
+                }
+                res.json({ message: 'Data uploaded successfully', data });
+            });
+        });
+    });
 });
 
-app.post('/upload/data/audio', async (req, res) => {
+app.post('/upload/data/audio', (req, res) => {
     const data_dir = `${req.body.userUUID}/`;
     const fileName = data_dir + `${req.body.trialIndex}.wav`;
 
     try {
-        // Decode base64 audio data
         const base64Data = req.body.base64.replace(/^data:audio\/wav;base64,/, '');
         const audioBuffer = Buffer.from(base64Data, 'base64');
 
@@ -117,174 +107,133 @@ app.post('/upload/data/audio', async (req, res) => {
             ContentType: 'audio/wav',
         };
 
-        const data = await s3.send(new PutObjectCommand(params));
-        res.json({ message: 'Data uploaded successfully', data });
+        s3.upload(params, (err, data) => {
+            if (err) {
+                console.error('Error uploading audio:', err);
+                return res.status(500).json({ error: 'Error uploading audio', details: err });
+            }
+            res.json({ message: 'Audio uploaded successfully', data });
+        });
     } catch (err) {
-        console.error('Error uploading data:', err);
-        res.status(500).json({ error: 'Error uploading data', details: err.message });
+        console.error('Error processing audio:', err);
+        res.status(500).json({ error: 'Error processing audio', details: err.message });
     }
 });
 
-app.post('/upload/data/video', async (req, res) => {
-
+app.post('/upload/data/video', (req, res) => {
     const data_dir = `${req.body.userUUID}/`;
     const fileName = data_dir + `${req.body.userUUID}.wav`;
 
+    const params = {
+        Bucket: bucketName,
+        Key: fileName,
+        Body: req.body.binaryData,
+        ContentType: 'video/webm',
+    };
 
-    try {
-        const params = {
-            Bucket: bucketName,
-            Key: fileName,
-            Body: req.body.binaryData,
-            ContentType: 'video/webm', // Change this if your video is in a different format
-        };
-
-        const data = await s3.send(new PutObjectCommand(params));
+    s3.upload(params, (err, data) => {
+        if (err) {
+            console.error('Error uploading video:', err);
+            return res.status(500).json({ error: 'Error uploading video', details: err });
+        }
         res.json({ message: 'Video uploaded successfully', data });
-    } catch (err) {
-        console.error('Error uploading video:', err);
-        res.status(500).json({ error: 'Error uploading video', details: err });
-    }
+    });
 });
 
-
-
-app.get('/s3/get-object/bucket/:bucket/key/:key', async (req, res) => {
-    console.log("req.query", req.query);
-    console.log("req.params", req.params);
-
-    const input = {
+app.get('/s3/get-object/bucket/:bucket/key/:key', (req, res) => {
+    const params = {
         Bucket: req.params.bucket,
         Key: req.params.key,
     };
 
-    const command = new GetObjectCommand(input);
-
-    try {
-        const response = await s3.send(command);
-
-        // Get the stream from the response
-        const responseStream = response.Body;
-
-        // Check if the response is a readable stream
-        if (responseStream instanceof stream.Readable) {
-            let csvData = [];
-
-            // Parse CSV data from the stream
-            responseStream
-                .pipe(csv())
-                .on('data', (row) => {
-                    //console.log(row);
-                    csvData.push(row); // Each row is an object where keys are the CSV column headers
-                })
-                .on('end', () => {
-                    //console.log(csvData)
-                    res.json(csvData); // Send the parsed CSV data as JSON response
-                })
-                .on('error', (parseError) => {
-                    console.error('Error parsing CSV:', parseError);
-                    res.status(500).json({ error: 'Failed to parse CSV', details: parseError.message });
-                });
-
-        } else {
-            throw new Error('Failed to retrieve the S3 object stream');
+    s3.getObject(params, (err, data) => {
+        if (err) {
+            console.error('Error retrieving object from S3:', err);
+            return res.status(500).json({ error: 'Failed to retrieve object from S3', details: err.message });
         }
-    } catch (error) {
-        console.error('Error retrieving object from S3:', error);
-        res.status(500).json({ error: 'Failed to retrieve object from S3', details: error.message });
-    }
+
+        const responseStream = new stream.PassThrough();
+        responseStream.end(data.Body);
+
+        let csvData = [];
+        responseStream
+            .pipe(csvParse({ columns: true }))
+            .on('data', (row) => {
+                csvData.push(row);
+            })
+            .on('end', () => {
+                res.json(csvData);
+            })
+            .on('error', (parseError) => {
+                console.error('Error parsing CSV:', parseError);
+                res.status(500).json({ error: 'Failed to parse CSV', details: parseError.message });
+            });
+    });
 });
 
-app.get('/get/data/bucket/:bucket/key/:dir/:file', async (req, res) => {
-    console.log("req.query", req.query);
-    console.log("req.params", req.params);
-
-    const input = {
+app.get('/get/data/bucket/:bucket/key/:dir/:file', (req, res) => {
+    const params = {
         Bucket: req.params.bucket,
         Key: req.params.dir + '/' + req.params.file,
     };
 
-    const command = new GetObjectCommand(input);
-
-    try {
-        const response = await s3.send(command);
-
-        // Get the stream from the response
-        const responseStream = response.Body;
-
-        // Check if the response is a readable stream
-        if (responseStream instanceof stream.Readable) {
-            let csvData = [];
-
-            // Parse CSV data from the stream
-            responseStream
-                .pipe(csv())
-                .on('data', (row) => {
-                    //console.log(row);
-                    csvData.push(row); // Each row is an object where keys are the CSV column headers
-                })
-                .on('end', () => {
-                    //console.log(csvData)
-                    res.json(csvData); // Send the parsed CSV data as JSON response
-                })
-                .on('error', (parseError) => {
-                    console.error('Error parsing CSV:', parseError);
-                    res.status(500).json({ error: 'Failed to parse CSV', details: parseError.message });
-                });
-
-        } else {
-            throw new Error('Failed to retrieve the S3 object stream');
+    s3.getObject(params, (err, data) => {
+        if (err) {
+            console.error('Error retrieving object from S3:', err);
+            return res.status(500).json({ error: 'Failed to retrieve object from S3', details: err.message });
         }
-    } catch (error) {
-        console.error('Error retrieving object from S3:', error);
-        res.status(500).json({ error: 'Failed to retrieve object from S3', details: error.message });
-    }
+
+        const responseStream = new stream.PassThrough();
+        responseStream.end(data.Body);
+
+        let csvData = [];
+        responseStream
+            .pipe(csvParse({ columns: true }))
+            .on('data', (row) => {
+                csvData.push(row);
+            })
+            .on('end', () => {
+                res.json(csvData);
+            })
+            .on('error', (parseError) => {
+                console.error('Error parsing CSV:', parseError);
+                res.status(500).json({ error: 'Failed to parse CSV', details: parseError.message });
+            });
+    });
 });
 
-app.get('/get/wav/bucket/:bucket/key/:dir/:file', async (req, res) => {
-    console.log("req.params", req.params);
-
-    const input = {
+app.get('/get/wav/bucket/:bucket/key/:dir/:file', (req, res) => {
+    const params = {
         Bucket: req.params.bucket,
         Key: `${req.params.dir}/${req.params.file}`,
     };
 
-    const command = new GetObjectCommand(input);
-
-    try {
-        const response = await s3.send(command);
-
-        const responseStream = response.Body;
-
-        if (responseStream instanceof stream.Readable) {
-            res.setHeader('Content-Type', 'audio/wav');
-            res.setHeader('Content-Disposition', `inline; filename="${req.params.file}"`);
-
-            responseStream.pipe(res);
-        } else {
-            throw new Error('Failed to retrieve the S3 object stream');
+    s3.getObject(params, (err, data) => {
+        if (err) {
+            console.error('Error retrieving object from S3:', err);
+            return res.status(500).json({ error: 'Failed to retrieve object from S3', details: err.message });
         }
-    } catch (error) {
-        console.error('Error retrieving object from S3:', error);
-        res.status(500).json({ error: 'Failed to retrieve object from S3', details: error.message });
-    }
+
+        res.setHeader('Content-Type', 'audio/wav');
+        res.setHeader('Content-Disposition', `inline; filename="${req.params.file}"`);
+        res.send(data.Body);
+    });
 });
-app.get('/s3/list-objects', async (req, res) => {
-    const input = {
-      Bucket: bucketName,  // Replace with your actual bucket name
-      MaxKeys: 100,               // Limit the number of objects returned
+
+app.get('/s3/list-objects', (req, res) => {
+    const params = {
+        Bucket: bucketName,
+        MaxKeys: 100,
     };
-  
-    const command = new ListObjectsCommand(input);
-  
-    try {
-      const response = await s3.send(command);
-      res.json({
-        message: 'Objects retrieved successfully',
-        data: response.Contents,
-      });
-    } catch (error) {
-      console.error('Error listing objects from S3:', error);
-      res.status(500).json({ error: 'Failed to list objects from S3', details: error.message });
-    }
+
+    s3.listObjects(params, (err, data) => {
+        if (err) {
+            console.error('Error listing objects from S3:', err);
+            return res.status(500).json({ error: 'Failed to list objects from S3', details: err.message });
+        }
+        res.json({
+            message: 'Objects retrieved successfully',
+            data: data.Contents,
+        });
+    });
 });
