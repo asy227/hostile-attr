@@ -68,15 +68,15 @@ var v1 = {
 }
 
 var v2_text = [
-    "Okay, now this next story is about football. Johnny and Bob are best friends. They really enjoy playing football together. Johnny and Bob both want to play on the school football team. The school football team plays every Monday after school.",
-    "Johnny thinks that he is not as good at football as Bob is. He thinks that the football manager is more likely to choose Bob for the football team.",
-    "But the football manager thinks that both Johnny and Bob are good football players. He wants them both to play in the school football team. But the manager knows that Johnny doesn’t think he will get on the team."
+    "Imagine that you are standing on the playground, playing catch with a number of children.",
+    "You throw the ball to a girl and she catches it.",
+    "You turn around, and the next thing you realize is that the girl has thrown the ball and hit you in the middle of your back. The ball hits you hard, and it hurts a lot."
 ]
 
 var v2_images = [
-    'images/v2_p1.png',
-    'images/v2_p2.png',
-    'images/v2_p3.png']
+    'images/s2p1.png',
+    'images/s2p2.png',
+    'images/s2p3.png']
 
 var v2_content = v2_text.map((text, index) => {
     return {

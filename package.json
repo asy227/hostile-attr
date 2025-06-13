@@ -1,4 +1,15 @@
 {
+  "name": "hostile-attr",
+  "version": "1.0.0",
+  "main": "server.js",
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no tests specified\" && exit 1"
+  },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.624.0",
     "@aws-sdk/lib-storage": "^3.758.0",
