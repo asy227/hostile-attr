@@ -1,14 +1,16 @@
 var v1_text = [
-    'Imagine that you are sitting at the lunch table at school, eating lunch. '
-    ,'You look up and see a boy coming over to your table with a drink.'
-    , 'You turn around to eat your lunch, and the next thing that happens is that the boy’s drink gets spilled all over your back. The drink gets your shirt all wet.'
+    'This is a story about two friends, Jason and Lisa. This is Jason and this is Lisa (points to picture). They are playing in Jason’s room. Jason has a letter from his friend, Susan. Lisa really wants to know what the letter says but Jason does not want her to read it.'
+    ,'Jason’s mom calls him. Jason puts the letter under his blanket and leaves the room. While Jason is gone, Lisa takes the letter and reads it.'
+    , 'Then she puts it away in Jason’s desk. But Jason finishes talking to his mom and comes back. He sees Lisa putting the letter in the desk. Jason watches Lisa, but Lisa does not see Jason.'
 ]
 
 var v1_images = [
-    'images/s1p1.png',
-    'images/s1p2.png',
-    'images/s1p3.png'
+    'images/v1_p1.png',
+    'images/v1_p2.png',
+    'images/v1_p3.png'
 ]
+
+
 
 var v1_content = v1_text.map((text, index) => {
     return {
@@ -20,46 +22,43 @@ var v1_content = v1_text.map((text, index) => {
 var v1_q = [
     {
         type: 'multiple-choice-image',
-        prompt: 'Do you think that he spilled his drink all over you on purpose or on accident?',
+        prompt: 'Where did Jason put his letter before he went to see his mom?',
         options: [ 
-            'images/purpose.png', 
-            'images/accident.png',
-            'images/question.png'
+            'images/v1_q1_o1.jpg',
+            'images/v1_q1_o2.jpg',
+            'images/question.jpg'
         ]
     },
     {
         type: 'multiple-choice-image',
-        prompt: 'Ignore it',
-        options: [ //CHANGE TO CORRRECT IMAGES
-            'images/no_answer.png',//no
-            'images/maybe_answer.png',//maybe
-            'images/yes_answer.jpg'//yes
+        prompt: 'Where did Lisa put the letter after she read it?',
+        options: [ 
+            'images/v1_q1_o1.jpg',
+            'images/v1_q1_o2.jpg',
+            'images/question.jpg'
         ]
     },
     {
         type: 'multiple-choice-image',
-        prompt: 'Say something mean back',
+        prompt: 'Does Jason know where the letter is now?',
         options: [
-            'images/no_answer.png',//no
-            'images/maybe_answer.png',//maybe
-            'images/yes_answer.png'//yes
+            'images/check_mark.png',
+            'images/x_mark.png'
         ]
     }, 
     {
         type: 'multiple-choice-image',
-        prompt: 'Tell a teacher',
+        prompt: 'Now on the basis of this, if Jason goes to get his letter, where does Lisa think Jason will look for his letter?',
         options: [ 
-            'images/no_answer.png',//no
-            'images/maybe_answer.png',//maybe
-            'images/yes_answer.png'//yes
+            'images/v1_q1_o1.jpg',
+            'images/v1_q1_o2.jpg',
+            'images/question.jpg'
         ]
     }, 
-    
-    //asked to record voice but you dont need this for hostile attr
-    /*{ 
+    {
         type: 'audio-input',
         prompt: 'Why does Lisa think this?'
-    },*/
+    },
 ]
 
 var v1 = {
@@ -68,15 +67,15 @@ var v1 = {
 }
 
 var v2_text = [
-    "Imagine that you are standing on the playground, playing catch with a number of children.",
-    "You throw the ball to a girl and she catches it.",
-    "You turn around, and the next thing you realize is that the girl has thrown the ball and hit you in the middle of your back. The ball hits you hard, and it hurts a lot."
+    "Okay, now this next story is about football. Johnny and Bob are best friends. They really enjoy playing football together. Johnny and Bob both want to play on the school football team. The school football team plays every Monday after school.",
+    "Johnny thinks that he is not as good at football as Bob is. He thinks that the football manager is more likely to choose Bob for the football team.",
+    "But the football manager thinks that both Johnny and Bob are good football players. He wants them both to play in the school football team. But the manager knows that Johnny doesn’t think he will get on the team."
 ]
 
 var v2_images = [
-    'images/s2p1.png',
-    'images/s2p2.png',
-    'images/s2p3.png']
+    'images/v2_p1.png',
+    'images/v2_p2.png',
+    'images/v2_p3.png']
 
 var v2_content = v2_text.map((text, index) => {
     return {
