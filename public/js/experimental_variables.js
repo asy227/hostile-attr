@@ -251,30 +251,3 @@ var v5 = {
 
 
 var v = [v1,v2,v3,v4,v5];
-
-/*------------------------------------------------------------------NOT NEEDED-------------------------------------------------------
-var rmie_q = [
-    {
-        type: 'image-button',
-        prompt: 'What emotion is being displayed here?',
-        stimulus: 'images/rmie_p1.png',
-        options: ['serious','ashamed','bewildered','alarmed']
-    },
-    {
-        type: 'image-button',
-        prompt: 'What emotion is being displayed here?',
-        stimulus: 'images/rmie_p2.png',
-        options: ['panicked','incredulous','despondent','interested']
-    },
-    {
-        type: 'image-button',
-        prompt: 'What emotion is being displayed here?',
-        stimulus: 'images/rmie_p3.png',
-        options: ['apologetic','friendly','uneasy','dispirited']
-    }
-]
-
-var rmie = {
-    questions: rmie_q
-}
------------------------------------------------------------------------------------------------------------------------------------------*/
