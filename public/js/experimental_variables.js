@@ -290,9 +290,9 @@ var v4 = {
 }
 
 var v5_text = [
-    "Okay, last story! Jill wanted to buy a kitten, so she went to see Mrs. Smith, who had lots of kittens she didn't want. Now Mrs. Smith loved the kittens, and she wouldn't do anything to harm them, though she couldn't keep them all herself.",
-    "When Jane visited she wasn't sure she wanted one of Mrs. Smith's kittens, since they were all males and she had wanted a female.",
-    "But Mrs. Smith said, 'If no one buys the kittens I'll just have to drown them!'"
+    "Imagine that you are on the playground. You and some other kids are having a race. A boy is standing on the side, bouncing a basketball. ",
+    "The next thing you know is that the boy has bounced the ball and it has rolled under your feet, making you fall.",
+    "You scrape your knee and someone else wins the race."
 ]
 
 var v5_images = [
@@ -310,21 +310,51 @@ var v5_content = v5_text.map((text, index) => {
 
 var v5_q = [
     {
-        type: 'multiple-choice-image',
-        prompt: 'Was it true, what Mrs. Smith said?',
-        options: [
-            'images/check_mark.png',
-            'images/x_mark.png'
+        type: 'multiple-choice',
+        prompt: 'Based on this story, do you think that the boy made you fall on purpose, or on accident?',
+        options: [ 
+            'Purpose',
+            'Accident',
+            '?'
         ]
     },
     {
-        type: 'audio-input',
-        prompt: 'Why did Mrs. Smith say this to Jane?'
+        type: 'multiple-choice',
+        prompt: 'Ignore it and walk away',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
     },
     {
-        type: 'audio-input-goodbye',
-        prompt: 'Thank you so much for listening to all of these stories and answering the questions! Is there anything else you would like to tell us about the stories you heard? The next page will your record your answer to this question.'
-    }
+        type: 'multiple-choice',
+        prompt: 'Say someting mean to him',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    }, 
+    {
+        type: 'multiple-choice',
+        prompt: 'Get bandaids for your knee',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Which are you most likely to do?',
+        options: [ 
+            'Ignore it and walk away',
+            'Say something mean to him',
+            'Get band-aids for your knee'
+        ]
+    },
+
 ]
 
 var v5 = {
@@ -332,30 +362,6 @@ var v5 = {
     questions: v5_q
 }
 
-var rmie_q = [
-    {
-        type: 'image-button',
-        prompt: 'What emotion is being displayed here?',
-        stimulus: 'images/rmie_p1.png',
-        options: ['serious','ashamed','bewildered','alarmed']
-    },
-    {
-        type: 'image-button',
-        prompt: 'What emotion is being displayed here?',
-        stimulus: 'images/rmie_p2.png',
-        options: ['panicked','incredulous','despondent','interested']
-    },
-    {
-        type: 'image-button',
-        prompt: 'What emotion is being displayed here?',
-        stimulus: 'images/rmie_p3.png',
-        options: ['apologetic','friendly','uneasy','dispirited']
-    }
-]
-
-var rmie = {
-    questions: rmie_q
-}
 
 var v = [v1,v2,v3,v4,v5];
 
