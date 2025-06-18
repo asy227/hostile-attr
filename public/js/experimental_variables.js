@@ -217,9 +217,9 @@ var v3 = {
 }
 
 var v4_text = [
-    "During the war, the Red army captured a member of the Blue army. They want him to tell them where his army's tanks are; they know they are either by the sea or in the mountains. They know that the prisoner will not want to tell them, he will want to save his army, and so he will certainly lie to them.",
-    "The prisoner is very brave and very clever, he will not let them find his tanks. The tanks are really in the mountains.",
-    "Now when the other side asks him where his tanks are, he says, 'They are in the mountains."
+    "Imagine that you have finished an art project for school. You’ve worked on it a long time and you’re really proud of it. A girl comes over to look at your project. The girl is holding a jar of paint. ",
+    "You turn away for a minute and when you look back...",
+    "...the girl has spilled paint on your art project. You worked on the project for a long time and now it is ruined."
 ]
 
 var v4_images = [
@@ -237,25 +237,51 @@ var v4_content = v4_text.map((text, index) => {
 
 var v4_q = [
     {
-        type: 'multiple-choice-image',
-        prompt: 'Is it true what the prisoner said?',
-        options: [
-            'images/check_mark.png',
-            'images/x_mark.png'
+        type: 'multiple-choice',
+        prompt: 'Based on this story, do you think that the girl spilled the paint on purpose, or on accident?',
+        options: [ 
+            'Purpose',
+            'Accident',
+            '?'
         ]
     },
     {
-        type: 'multiple-choice-image',
-        prompt: 'Where will the other army look for his tanks?',
-        options: [
-            'images/v4_q1_o1.png',
-            'images/v4_q1_o2.png',
-            'images/question.jpg']
+        type: 'multiple-choice',
+        prompt: 'Pretend like notihng happened',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
     },
     {
-        type: 'audio-input',
-        prompt: 'Why did the prisoner say what he said?'
-    }
+        type: 'multiple-choice',
+        prompt: 'Spill paint on the girl',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    }, 
+    {
+        type: 'multiple-choice',
+        prompt: 'Try to fix the project',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Which are you most likely to do?',
+        options: [ 
+            'Pretend like nothing happened',
+            'Spill paint on the girl',
+            'Try to fix the project'
+        ]
+    },
+
 ]    
 
 var v4 = { 
