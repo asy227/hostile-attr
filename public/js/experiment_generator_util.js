@@ -187,26 +187,7 @@ function populateExperimentTimeline(timeline) {
         });
     }
 
-    // generate rmie
-
-    for (let i = 0; i < rmie.questions.length; i++) {
-        timeline.push(
-            {
-                type: jsPsychImageButtonResponse,
-                stimulus: rmie.questions[i].stimulus,
-                prompt: rmie.questions[i].prompt,
-                button_html: rmie.questions[i].options.map(choice => `<button class="jspsych-btn">${choice}</button>`),
-                choices: rmie.questions[i].options,
-                stimulus_width: 600,
-                on_finish: function(data) {
-                    console.log('User choice:', data.response);
-                }
-            }
-        );
-        if (i < rmie.questions.length-1) {
-            timeline.push(pause);
-        }
-    }                    
+    //deleted rmie
 
     timeline.push(
         {
