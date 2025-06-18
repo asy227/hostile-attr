@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>What would you do?</title>
+    <title>What Are They Thinking?</title>
     <!-- Import JsPsych CSS -->
     <!-- Import JsPsych Library -->
     <script src="https://unpkg.com/jspsych@8.0.0"></script>
@@ -23,6 +23,11 @@
     <script src="https://unpkg.com/@jspsych/plugin-initialize-microphone@1.0.3"></script>
 
     <script src="https://unpkg.com/@jspsych/plugin-html-audio-response@1.0.3"></script>
+
+    <link href="https://unpkg.com/jspsych@8.0.0/css/jspsych.css" rel="stylesheet" type="text/css" />
+    <script src="js/s3.js"></script>
+    <script src="js/experimental_variables.js"></script>
+    <script src="js/experiment_generator_util.js"></script>
 
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +50,7 @@
         button {
             font-size: 10px !important;
         }
+        
 
         body {
             font-family: "Gloria Hallelujah", cursive;
@@ -72,7 +78,7 @@
 </head>
 <body>
     <div class="container" id="jspsych-target">
-        <h1 class="title">What Would You Do?</h1>
+        <h1 class="title">What Are They Thinking?</h1>
     </div>
 
     <script>

@@ -137,7 +137,7 @@ function populateExperimentTimeline(timeline) {
                     break;
                 case 'multiple-choice-image':               
                     timeline.push(
-                    {  
+                    {
                         type: jsPsychHtmlButtonResponse,
                         stimulus: "<img src=\"/images/v" + (i+1) + "_one_page_no_text.png\" alt=\"Story in one page\" style=\"width: 600px; \">",
                         button_html: v[i].questions[j].options.map(choice => `<img src="${choice}" style="width: 175px; height: 175px;">`),
@@ -148,7 +148,7 @@ function populateExperimentTimeline(timeline) {
                     break;
                 case 'multiple-choice':
                     timeline.push(
-                    {   
+                    {
                         type: jsPsychHtmlButtonResponse,
                         stimulus: "<img src=\"/images/v" + (i+1) + "_one_page_no_text.png\" alt=\"Story in one page\" style=\"width: 600px; \">",
                         button_html: v[i].questions[j].options.map(choice => `<button style=\"font-size:24px !important;\" class="jspsych-btn">${choice}</button>`),

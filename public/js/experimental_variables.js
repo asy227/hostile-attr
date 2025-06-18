@@ -1,7 +1,7 @@
 var v1_text = [
-    'Imagine that you are sitting at the lunch table at school, eating lunch. '
-    ,'You look up and see a boy coming over to your table with a drink.'
-    , 'You turn around to eat your lunch, and the next thing that happens is that the boy’s drink gets spilled all over your back. The drink gets your shirt all wet.'
+    'This is a story about two friends, Jason and Lisa. This is Jason and this is Lisa (points to picture). They are playing in Jason’s room. Jason has a letter from his friend, Susan. Lisa really wants to know what the letter says but Jason does not want her to read it.'
+    ,'Jason’s mom calls him. Jason puts the letter under his blanket and leaves the room. While Jason is gone, Lisa takes the letter and reads it.'
+    , 'Then she puts it away in Jason’s desk. But Jason finishes talking to his mom and comes back. He sees Lisa putting the letter in the desk. Jason watches Lisa, but Lisa does not see Jason.'
 ]
 
 var v1_images = [
@@ -21,56 +21,44 @@ var v1_content = v1_text.map((text, index) => {
 
 var v1_q = [
     {
-        type: 'multiple-choice',
-        prompt: 'Based on this story, do you think that he spilled his drink all over you on purpose, or on accident?',
+        type: 'multiple-choice-image',
+        prompt: 'Where did Jason put his letter before he went to see his mom?',
         options: [ 
-            'Purpose',
-            'Accident',
-            '?'
+            'images/v1_q1_o1.jpg',
+            'images/v1_q1_o2.jpg',
+            'images/question.jpg'
         ]
     },
     {
-        type: 'multiple-choice',
-        prompt: 'Ignore it',
+        type: 'multiple-choice-image',
+        prompt: 'Where did Lisa put the letter after she read it?',
         options: [ 
-            'No',
-            'Maybe',
-            'Yes'
+            'images/v1_q1_o1.jpg',
+            'images/v1_q1_o2.jpg',
+            'images/question.jpg'
         ]
     },
     {
-        type: 'multiple-choice',
-        prompt: 'Say someting mean',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
+        type: 'multiple-choice-image',
+        prompt: 'Does Jason know where the letter is now?',
+        options: [
+            'images/check_mark.png',
+            'images/x_mark.png'
         ]
     }, 
     {
-        type: 'multiple-choice',
-        prompt: 'Ask a teacher for a towel',
+        type: 'multiple-choice-image',
+        prompt: 'Based on what you heard, if Jason searches for his letter, where does Lisa think he will look?',
         options: [ 
-            'No',
-            'Maybe',
-            'Yes'
+            'images/v1_q1_o1.jpg',
+            'images/v1_q1_o2.jpg',
+            'images/question.jpg'
         ]
-    },
-    {
-        type: 'multiple-choice',
-        prompt: 'Which are you most likely to do?',
-        options: [ 
-            'Ignore it',
-            'Say something mean',
-            'Ask a teacher for a towel'
-        ]
-    },
-    /*--------------------NOT NEEDED FOR THIS TASK----------------------------------
+    }, 
     {
         type: 'audio-input',
         prompt: 'Why does Lisa think this?'
     },
-    --------------------------------------------------------------------------------*/
 ]
 
 var v1 = {
@@ -79,9 +67,9 @@ var v1 = {
 }
 
 var v2_text = [
-    "Imagine that you are standing on the playground, playing catch with a number of children. ",
-    "You throw the ball to a girl and she catches it. ",
-    "You turn around, and the next thing you realize is that the girl has thrown the ball and hit you in the middle of your back. The ball hits you hard, and it hurts a lot"
+    "Okay, now this next story is about football. Johnny and Bob are best friends. They really enjoy playing football together. Johnny and Bob both want to play on the school football team. The school football team plays every Monday after school.",
+    "Johnny thinks that he is not as good at football as Bob is. He thinks that the football manager is more likely to choose Bob for the football team.",
+    "But the football manager thinks that both Johnny and Bob are good football players. He wants them both to play in the school football team. But the manager knows that Johnny doesn’t think he will get on the team."
 ]
 
 var v2_images = [
@@ -99,49 +87,21 @@ var v2_content = v2_text.map((text, index) => {
 var v2_q = [
     {
         type: 'multiple-choice',
-        prompt: 'Based on this story, do you think that she hit you on purpose, or on accident?',
-        options: [ 
-            'Purpose',
-            'Accident',
-            '?'
+        prompt: 'Which of the two statements do you think is right?',
+        options: [
+            'The football team play on Fridays.',
+            'The football team play on Mondays.'
         ]
     },
     {
-        type: 'multiple-choice',
-        prompt: 'Ignore it',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
+        type: 'multiple-choice-image',
+        prompt: 'Good! Now think about the story to answer this one… which reasoning is correct?',
+        options: [
+            'images/v2_q1_o1.png',
+            'images/v2_q1_o2.png',
+            'images/question.jpg'
         ]
-    },
-    {
-        type: 'multiple-choice',
-        prompt: 'Hit her back',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
-        ]
-    }, 
-    {
-        type: 'multiple-choice',
-        prompt: 'Fetch ice for the swelling',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
-        ]
-    },
-    {
-        type: 'multiple-choice',
-        prompt: 'Which are you most likely to do?',
-        options: [ 
-            'Ignore it',
-            'Hit her back',
-            'Fetch ice for the swelling'
-        ]
-    },
+    }
 ]
 
 var v2 = {
@@ -150,9 +110,9 @@ var v2 = {
 }
 
 var v3_text = [
-    "Imagine that you are walking to school and you’re wearing your new tennis shoes. You really like your new shoes and this is the first day you have worn them. ",
-    "Suddenly, you are bumped from behind by a boy. ",
-    "You stumble and fall into a mud puddle and your new shoes get muddy."
+    "Okay… one more story! Sarah and Joe are in the same class at school. Sarah and Joe often sit next to each other. Their teacher is Mrs. Brown. One day Mrs. Brown suggests that Sarah and Joe should bring a video into school to watch with the other children as a treat for being good in class. Mrs. Brown also says to them: 'Make sure you bring in something really funny that I will like too!",
+    "Sarah’s favorite videos are cartoons. Joe’s favorite videos are adventure films. Which will it be? Cartoons or adventure films?",
+    "Joe says to Sarah: ‘We just can’t decide so I think that we should take in the film that Mrs. Brown would like. Sarah, do you know which Mrs. Brown would like best?’ Sarah has a little think. She doesn’t have a clue which film Mrs. Brown would like! But Sarah decides to tell Joe that she knows that Mrs. Brown likes cartoons best. Sarah thinks that this will make Joe decide to take cartoon videos into school. Joe listens to this and then Joe says; 'We will take in a video of cartoons then.' So Sarah gets to enjoy her favorite cartoons!"
 ]
 
 var v3_images = [
@@ -171,49 +131,21 @@ var v3_content = v3_text.map((text, index) => {
 var v3_q = [
     {
         type: 'multiple-choice',
-        prompt: 'Based on this story, do you think that the boy bumped you on purpose, or on accident?',
-        options: [ 
-            'Purpose',
-            'Accident',
-            '?'
+        prompt: 'Which of the following statements is true?',
+        options: [
+            'Mrs Brown asks Sarah and Joe to bring in something funny to watch.',
+            'Mrs Brown asks Sarah and Joe to bring in something scary to watch.'
         ]
     },
     {
-        type: 'multiple-choice',
-        prompt: 'Ignore it and walk away',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
+        type: 'multiple-choice-image',
+        prompt: 'Which of the two statements do you think is right?',
+        options: [
+            'images/v3_q1_o1.png',
+            'images/v3_q1_o2.png',
+            'images/question.jpg'
         ]
-    },
-    {
-        type: 'multiple-choice',
-        prompt: 'Push the boy in the mud',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
-        ]
-    }, 
-    {
-        type: 'multiple-choice',
-        prompt: 'Clean off your choes',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
-        ]
-    },
-    {
-        type: 'multiple-choice',
-        prompt: 'Which are you most likely to do?',
-        options: [ 
-            'Ignore it and walk away',
-            'Push the boy in the mud',
-            'Clean off your shoes'
-        ]
-    },
+    }
 ]
 
 var v3 = {
@@ -222,9 +154,9 @@ var v3 = {
 }
 
 var v4_text = [
-    "Imagine that you have finished an art project for school. You’ve worked on it a long time and you’re really proud of it. A girl comes over to look at your project. The girl is holding a jar of paint. ",
-    "You turn away for a minute and when you look back...",
-    "...the girl has spilled paint on your art project. You worked on the project for a long time and now it is ruined."
+    "During the war, the Red army captured a member of the Blue army. They want him to tell them where his army's tanks are; they know they are either by the sea or in the mountains. They know that the prisoner will not want to tell them, he will want to save his army, and so he will certainly lie to them.",
+    "The prisoner is very brave and very clever, he will not let them find his tanks. The tanks are really in the mountains.",
+    "Now when the other side asks him where his tanks are, he says, 'They are in the mountains."
 ]
 
 var v4_images = [
@@ -242,50 +174,25 @@ var v4_content = v4_text.map((text, index) => {
 
 var v4_q = [
     {
-        type: 'multiple-choice',
-        prompt: 'Based on this story, do you think that the girl spilled the paint on purpose, or on accident?',
-        options: [ 
-            'Purpose',
-            'Accident',
-            '?'
+        type: 'multiple-choice-image',
+        prompt: 'Is it true what the prisoner said?',
+        options: [
+            'images/check_mark.png',
+            'images/x_mark.png'
         ]
     },
     {
-        type: 'multiple-choice',
-        prompt: 'Pretend like notihng happened',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
-        ]
+        type: 'multiple-choice-image',
+        prompt: 'Where will the other army look for his tanks?',
+        options: [
+            'images/v4_q1_o1.png',
+            'images/v4_q1_o2.png',
+            'images/question.jpg']
     },
     {
-        type: 'multiple-choice',
-        prompt: 'Spill paint on the girl',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
-        ]
-    }, 
-    {
-        type: 'multiple-choice',
-        prompt: 'Try to fix the project',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
-        ]
-    },
-    {
-        type: 'multiple-choice',
-        prompt: 'Which are you most likely to do?',
-        options: [ 
-            'Pretend like nothing happened',
-            'Spill paint on the girl',
-            'Try to fix the project'
-        ]
-    },
+        type: 'audio-input',
+        prompt: 'Why did the prisoner say what he said?'
+    }
 ]    
 
 var v4 = { 
@@ -294,9 +201,9 @@ var v4 = {
 }
 
 var v5_text = [
-    "Imagine that you are on the playground. You and some other kids are having a race. A boy is standing on the side, bouncing a basketball. ",
-    "The next thing you know is that the boy has bounced the ball and it has rolled under your feet, making you fall.",
-    "You scrape your knee and someone else wins the race."
+    "Okay, last story! Jill wanted to buy a kitten, so she went to see Mrs. Smith, who had lots of kittens she didn't want. Now Mrs. Smith loved the kittens, and she wouldn't do anything to harm them, though she couldn't keep them all herself.",
+    "When Jane visited she wasn't sure she wanted one of Mrs. Smith's kittens, since they were all males and she had wanted a female.",
+    "But Mrs. Smith said, 'If no one buys the kittens I'll just have to drown them!'"
 ]
 
 var v5_images = [
@@ -314,135 +221,28 @@ var v5_content = v5_text.map((text, index) => {
 
 var v5_q = [
     {
-        type: 'multiple-choice',
-        prompt: 'Based on this story, do you think that the boy made you fall on purpose, or on accident?',
-        options: [ 
-            'Purpose',
-            'Accident',
-            '?'
+        type: 'multiple-choice-image',
+        prompt: 'Was it true, what Mrs. Smith said?',
+        options: [
+            'images/check_mark.png',
+            'images/x_mark.png'
         ]
     },
     {
-        type: 'multiple-choice',
-        prompt: 'Ignore it and walk away',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
-        ]
+        type: 'audio-input',
+        prompt: 'Why did Mrs. Smith say this to Jane?'
     },
     {
-        type: 'multiple-choice',
-        prompt: 'Say someting mean to him',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
-        ]
-    }, 
-    {
-        type: 'multiple-choice',
-        prompt: 'Get bandaids for your knee',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
-        ]
-    },
-    {
-        type: 'multiple-choice',
-        prompt: 'Which are you most likely to do?',
-        options: [ 
-            'Ignore it and walk away',
-            'Say something mean to him',
-            'Get bandaids for your knee'
-        ]
-    },
+        type: 'audio-input-goodbye',
+        prompt: 'Thank you so much for listening to all of these stories and answering the questions! Is there anything else you would like to tell us about the stories you heard? The next page will your record your answer to this question.'
+    }
 ]
 
 var v5 = {
     content: v5_images,
     questions: v5_q
 }
-//-----------------added vignettes ---------------------------------
-var v6_text = [
-    "Imagine that you are on the playground. You and some other kids are having a race. A boy is standing on the side, bouncing a basketball. ",
-    "The next thing you know is that the boy has bounced the ball and it has rolled under your feet, making you fall.",
-    "You scrape your knee and someone else wins the race."
-]
 
-var v6_images = [
-    'images/v6_p1.png',
-    'images/v6_p2.png',
-    'images/v6_p3.png'
-]   
-
-var v6_content = v5_text.map((text, index) => {
-    return {
-        text: text,
-        image: v6_images[index]
-    };
-});
-
-var v6_q = [
-    {
-        type: 'multiple-choice',
-        prompt: 'Based on this story, do you think that the boy made you fall on purpose, or on accident?',
-        options: [ 
-            'Purpose',
-            'Accident',
-            '?'
-        ]
-    },
-    {
-        type: 'multiple-choice',
-        prompt: 'Ignore it and walk away',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
-        ]
-    },
-    {
-        type: 'multiple-choice',
-        prompt: 'Say someting mean to him',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
-        ]
-    }, 
-    {
-        type: 'multiple-choice',
-        prompt: 'Get bandaids for your knee',
-        options: [ 
-            'No',
-            'Maybe',
-            'Yes'
-        ]
-    },
-    {
-        type: 'multiple-choice',
-        prompt: 'Which are you most likely to do?',
-        options: [ 
-            'Ignore it and walk away',
-            'Say something mean to him',
-            'Get bandaids for your knee'
-        ]
-    },
-]
-
-var v6 = {
-    content: v6_images,
-    questions: v6_q
-}
-
-//testing first story
-var v = [v1];
-
-//full length task (uncomment to run and comment out the above one)
-//var v = [v1,v2,v3,v4,v5,v6];
-/*-------------------------------------------------NOT NEEDED FOR THIS TASK----------------------------------------------
 var rmie_q = [
     {
         type: 'image-button',
@@ -467,5 +267,6 @@ var rmie_q = [
 var rmie = {
     questions: rmie_q
 }
-    ------------------------------------------------------------------------------------------------------------------------*/
+
+var v = [v1,v2,v3,v4,v5];
 
