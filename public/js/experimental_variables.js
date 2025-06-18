@@ -1,7 +1,7 @@
 var v1_text = [
-    'This is a story about two friends, Jason and Lisa. This is Jason and this is Lisa (points to picture). They are playing in Jason’s room. Jason has a letter from his friend, Susan. Lisa really wants to know what the letter says but Jason does not want her to read it.'
-    ,'Jason’s mom calls him. Jason puts the letter under his blanket and leaves the room. While Jason is gone, Lisa takes the letter and reads it.'
-    , 'Then she puts it away in Jason’s desk. But Jason finishes talking to his mom and comes back. He sees Lisa putting the letter in the desk. Jason watches Lisa, but Lisa does not see Jason.'
+    'Imagine that you are sitting at the lunch table at school, eating lunch. '
+    ,'You look up and see a boy coming over to your table with a drink.'
+    , 'You turn around to eat your lunch, and the next thing that happens is that the boy’s drink gets spilled all over your back. The drink gets your shirt all wet.'
 ]
 
 var v1_images = [
@@ -21,44 +21,51 @@ var v1_content = v1_text.map((text, index) => {
 
 var v1_q = [
     {
-        type: 'multiple-choice-image',
-        prompt: 'Where did Jason put his letter before he went to see his mom?',
+        type: 'multiple-choice',
+        prompt: 'Based on this story, do you think that he spilled his drink all over you on purpose, or on accident?',
         options: [ 
-            'images/v1_q1_o1.jpg',
-            'images/v1_q1_o2.jpg',
-            'images/question.jpg'
+            'Purpose',
+            'Accident',
+            '?'
         ]
     },
     {
-        type: 'multiple-choice-image',
-        prompt: 'Where did Lisa put the letter after she read it?',
+        type: 'multiple-choice',
+        prompt: 'Ignore it',
         options: [ 
-            'images/v1_q1_o1.jpg',
-            'images/v1_q1_o2.jpg',
-            'images/question.jpg'
+            'No',
+            'Maybe',
+            'Yes'
         ]
     },
     {
-        type: 'multiple-choice-image',
-        prompt: 'Does Jason know where the letter is now?',
-        options: [
-            'images/check_mark.png',
-            'images/x_mark.png'
+        type: 'multiple-choice',
+        prompt: 'Say someting mean',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
         ]
     }, 
     {
-        type: 'multiple-choice-image',
-        prompt: 'Based on what you heard, if Jason searches for his letter, where does Lisa think he will look?',
+        type: 'multiple-choice',
+        prompt: 'Ask a teacher for a towel',
         options: [ 
-            'images/v1_q1_o1.jpg',
-            'images/v1_q1_o2.jpg',
-            'images/question.jpg'
+            'No',
+            'Maybe',
+            'Yes'
         ]
-    }, 
-    {
-        type: 'audio-input',
-        prompt: 'Why does Lisa think this?'
     },
+    {
+        type: 'multiple-choice',
+        prompt: 'Which are you most likely to do?',
+        options: [ 
+            'Ignore it',
+            'Say something mean',
+            'Ask a teacher for a towel'
+        ]
+    },
+
 ]
 
 var v1 = {
