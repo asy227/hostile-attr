@@ -74,9 +74,9 @@ var v1 = {
 }
 
 var v2_text = [
-    "Okay, now this next story is about football. Johnny and Bob are best friends. They really enjoy playing football together. Johnny and Bob both want to play on the school football team. The school football team plays every Monday after school.",
-    "Johnny thinks that he is not as good at football as Bob is. He thinks that the football manager is more likely to choose Bob for the football team.",
-    "But the football manager thinks that both Johnny and Bob are good football players. He wants them both to play in the school football team. But the manager knows that Johnny doesn’t think he will get on the team."
+    "Imagine that you are standing on the playground, playing catch with a number of children. ",
+    "You throw the ball to a girl and she catches it. ",
+    "You turn around, and the next thing you realize is that the girl has thrown the ball and hit you in the middle of your back. The ball hits you hard, and it hurts a lot"
 ]
 
 var v2_images = [
@@ -94,21 +94,49 @@ var v2_content = v2_text.map((text, index) => {
 var v2_q = [
     {
         type: 'multiple-choice',
-        prompt: 'Which of the two statements do you think is right?',
-        options: [
-            'The football team play on Fridays.',
-            'The football team play on Mondays.'
+        prompt: 'Based on this story, do you think that she hit you on purpose, or on accident?',
+        options: [ 
+            'Purpose',
+            'Accident',
+            '?'
         ]
     },
     {
-        type: 'multiple-choice-image',
-        prompt: 'Good! Now think about the story to answer this one… which reasoning is correct?',
-        options: [
-            'images/v2_q1_o1.png',
-            'images/v2_q1_o2.png',
-            'images/question.jpg'
+        type: 'multiple-choice',
+        prompt: 'Ignore it',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
         ]
-    }
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Hit her back',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    }, 
+    {
+        type: 'multiple-choice',
+        prompt: 'Fetch ice for the swelling',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Which are you most likely to do?',
+        options: [ 
+            'Ignore it',
+            'Hit her back',
+            'Fetch ice for the swelling'
+        ]
+    },
 ]
 
 var v2 = {
