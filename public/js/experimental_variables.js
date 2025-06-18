@@ -360,8 +360,82 @@ var v5_q = [
 var v5 = {
     content: v5_images,
     questions: v5_q
-}
+} 
+
+//------------------------------------------------------------------adding on-----------------------------------------------------------
+
+var v6_text = [
+    "Imagine that you are on the playground. You and some other kids are having a race. A boy is standing on the side, bouncing a basketball. ",
+    "The next thing you know is that the boy has bounced the ball and it has rolled under your feet, making you fall.",
+    "You scrape your knee and someone else wins the race."
+]
+
+var v6_images = [
+    'images/v5_p1.png',
+    'images/v5_p2.png',
+    'images/v5_p3.png'
+]   
+
+var v6_content = v6_text.map((text, index) => {
+    return {
+        text: text,
+        image: v6_images[index]
+    };
+});
+
+var v6_q = [
+    {
+        type: 'multiple-choice',
+        prompt: 'Based on this story, do you think that the boy made you fall on purpose, or on accident?',
+        options: [ 
+            'Purpose',
+            'Accident',
+            '?'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Ignore it and walk away',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Say someting mean to him',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    }, 
+    {
+        type: 'multiple-choice',
+        prompt: 'Get bandaids for your knee',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Which are you most likely to do?',
+        options: [ 
+            'Ignore it and walk away',
+            'Say something mean to him',
+            'Get bandaids for your knee'
+        ]
+    },
+]
+
+var v6 = {
+    content: v6_images,
+    questions: v6_q
+} 
 
 
-var v = [v1,v2,v3,v4,v5];
+var v = [v1,v2,v3,v4,v5, v6, v7, v8];
 
