@@ -145,9 +145,9 @@ var v2 = {
 }
 
 var v3_text = [
-    "Okay… one more story! Sarah and Joe are in the same class at school. Sarah and Joe often sit next to each other. Their teacher is Mrs. Brown. One day Mrs. Brown suggests that Sarah and Joe should bring a video into school to watch with the other children as a treat for being good in class. Mrs. Brown also says to them: 'Make sure you bring in something really funny that I will like too!",
-    "Sarah’s favorite videos are cartoons. Joe’s favorite videos are adventure films. Which will it be? Cartoons or adventure films?",
-    "Joe says to Sarah: ‘We just can’t decide so I think that we should take in the film that Mrs. Brown would like. Sarah, do you know which Mrs. Brown would like best?’ Sarah has a little think. She doesn’t have a clue which film Mrs. Brown would like! But Sarah decides to tell Joe that she knows that Mrs. Brown likes cartoons best. Sarah thinks that this will make Joe decide to take cartoon videos into school. Joe listens to this and then Joe says; 'We will take in a video of cartoons then.' So Sarah gets to enjoy her favorite cartoons!"
+    "Imagine that you are walking to school and you’re wearing your new tennis shoes. You really like your new shoes and this is the first day you have worn them. ",
+    "Suddenly, you are bumped from behind by a boy. ",
+    "You stumble and fall into a mud puddle and your new shoes get muddy."
 ]
 
 var v3_images = [
@@ -166,21 +166,49 @@ var v3_content = v3_text.map((text, index) => {
 var v3_q = [
     {
         type: 'multiple-choice',
-        prompt: 'Which of the following statements is true?',
-        options: [
-            'Mrs Brown asks Sarah and Joe to bring in something funny to watch.',
-            'Mrs Brown asks Sarah and Joe to bring in something scary to watch.'
+        prompt: 'Based on this story, do you think that the boy bumped you on purpose, or on accident?',
+        options: [ 
+            'Purpose',
+            'Accident',
+            '?'
         ]
     },
     {
-        type: 'multiple-choice-image',
-        prompt: 'Which of the two statements do you think is right?',
-        options: [
-            'images/v3_q1_o1.png',
-            'images/v3_q1_o2.png',
-            'images/question.jpg'
+        type: 'multiple-choice',
+        prompt: 'Ignore it and walk away',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
         ]
-    }
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Push the boy in the mud',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    }, 
+    {
+        type: 'multiple-choice',
+        prompt: 'Clean off your choes',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Which are you most likely to do?',
+        options: [ 
+            'Ignore it and walk away',
+            'Push the boy in the mud',
+            'Clean off your shoes'
+        ]
+    },
 ]
 
 var v3 = {
