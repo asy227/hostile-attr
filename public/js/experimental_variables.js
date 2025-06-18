@@ -365,15 +365,15 @@ var v5 = {
 //------------------------------------------------------------------adding on-----------------------------------------------------------
 
 var v6_text = [
-    "Imagine that you are on the playground. You and some other kids are having a race. A boy is standing on the side, bouncing a basketball. ",
-    "The next thing you know is that the boy has bounced the ball and it has rolled under your feet, making you fall.",
-    "You scrape your knee and someone else wins the race."
+    "Imagine that you brought your new toy to school today. You saved up your allowance to buy it and you want to show it to the other kids at school.",
+    "You let a girl play with it for a few minutes while you go get a drink of water. ",
+    "When you get back you realize that the girl has broken your brand new toy"
 ]
 
 var v6_images = [
-    'images/v5_p1.png',
-    'images/v5_p2.png',
-    'images/v5_p3.png'
+    'images/v6_p1.png',
+    'images/v6_p2.png',
+    'images/v6_p3.png'
 ]   
 
 var v6_content = v6_text.map((text, index) => {
@@ -386,7 +386,7 @@ var v6_content = v6_text.map((text, index) => {
 var v6_q = [
     {
         type: 'multiple-choice',
-        prompt: 'Based on this story, do you think that the boy made you fall on purpose, or on accident?',
+        prompt: 'Based on this story, do you think that the girl broke your toy on purpose, or on accident?',
         options: [ 
             'Purpose',
             'Accident',
@@ -395,7 +395,79 @@ var v6_q = [
     },
     {
         type: 'multiple-choice',
-        prompt: 'Ignore it and walk away',
+        prompt: 'Nothing',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Warn her that you are going to hurt her',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    }, 
+    {
+        type: 'multiple-choice',
+        prompt: 'Try to fix the toy',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Which are you most likely to do?',
+        options: [ 
+            'Nothing',
+            'Warn her that you are going to hurt her',
+            'Try to fix the toy'
+        ]
+    },
+]
+
+var v6 = {
+    content: v6_images,
+    questions: v6_q
+} 
+
+var v7_text = [
+    "Imagine that you are in the lunchroom. You’ve just gotten your tray, and you’re walking to a table.",
+    "Suddenly, a boy bumps into your arm, and you drop your tray.",
+    "Your food is spilled all over the floor."
+]
+
+var v7_images = [
+    'images/v7_p1.png',
+    'images/v7_p2.png',
+    'images/v7_p3.png'
+]   
+
+var v7_content = v7_text.map((text, index) => {
+    return {
+        text: text,
+        image: v7_images[index]
+    };
+});
+
+var v7_q = [
+    {
+        type: 'multiple-choice',
+        prompt: 'Based on this story, do you think that the boy bumped into you on purpose, or on accident?',
+        options: [ 
+            'Purpose',
+            'Accident',
+            '?'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Ignore it',
         options: [ 
             'No',
             'Maybe',
@@ -413,7 +485,80 @@ var v6_q = [
     }, 
     {
         type: 'multiple-choice',
-        prompt: 'Get bandaids for your knee',
+        prompt: 'Ask a lunch lady to help you clean up',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Which are you most likely to do?',
+        options: [ 
+            'Ignore it',
+            'Say something mean to him',
+            'Ask a lunch lady to help you clean up'
+        ]
+    },
+
+]
+
+var v7 = {
+    content: v7_images,
+    questions: v7_q
+} 
+
+var v8_text = [
+    "Imagine that you are at a water fountain waiting to get a drink.",
+    "There is a girl taking her turn at the fountain",
+    "The next thing you know, the girl has splashed some water on your face"
+]
+
+var v8_images = [
+    'images/v8_p1.png',
+    'images/v8_p2.png',
+    'images/v8_p3.png'
+]   
+
+var v8_content = v8_text.map((text, index) => {
+    return {
+        text: text,
+        image: v8_images[index]
+    };
+});
+
+var v8_q = [
+    {
+        type: 'multiple-choice',
+        prompt: 'Based on this story, do you think that the girl splashed water on you on purpose, or on accident?',
+        options: [ 
+            'Purpose',
+            'Accident',
+            '?'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Ignore it and walk away',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Splash water on her',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    }, 
+    {
+        type: 'multiple-choice',
+        prompt: 'Wipe your face off',
         options: [ 
             'No',
             'Maybe',
@@ -425,17 +570,17 @@ var v6_q = [
         prompt: 'Which are you most likely to do?',
         options: [ 
             'Ignore it and walk away',
-            'Say something mean to him',
-            'Get bandaids for your knee'
+            'Splash water on her',
+            'Wipe your face off'
         ]
     },
+
 ]
 
-var v6 = {
-    content: v6_images,
-    questions: v6_q
+var v8 = {
+    content: v8_images,
+    questions: v8_q
 } 
 
-
-var v = [v1,v2,v3,v4,v5, v6];
+var v = [v1,v2,v3,v4,v5, v6, v7, v8];
 
