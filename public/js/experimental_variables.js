@@ -395,7 +395,7 @@ var v6_q = [
     },
     {
         type: 'multiple-choice',
-        prompt: 'Nothing',
+        prompt: 'Ignore it and walk away',
         options: [ 
             'No',
             'Maybe',
