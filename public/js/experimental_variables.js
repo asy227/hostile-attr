@@ -424,7 +424,7 @@ var v6_q = [
         type: 'multiple-choice',
         prompt: 'Which are you most likely to do?',
         options: [ 
-            'Nothing',
+            'Ignore it and walk away',
             'Warn her that you are going to hurt her',
             'Try to fix the toy'
         ]
