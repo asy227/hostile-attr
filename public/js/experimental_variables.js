@@ -582,5 +582,153 @@ var v8 = {
     questions: v8_q
 } 
 
-var v = [v1,v2,v3,v4,v5, v6, v7, v8];
+
+var v9_text = [
+    "Imagine that you are working on a math assignment at your desk. ",
+    "You go to sharpen your pencil, and as you walk back to your desk there is a boy walking just in front of you. The boy passes your desk before you get there.",
+    "The next thing you know, the boy has knocked all of your papers off of your desk, and they are all over the floor."
+]
+
+var v9_images = [
+    'images/v9_p1.png',
+    'images/v9_p2.png',
+    'images/v9_p3.png'
+]   
+
+var v9_content = v9_text.map((text, index) => {
+    return {
+        text: text,
+        image: v9_images[index]
+    };
+});
+
+var v9_q = [
+    {
+        type: 'multiple-choice',
+        prompt: 'Based on this story, do you think the boy knocked your papers onto the floor on purpose, or on accident?',
+        options: [ 
+            'Purpose',
+            'Accident',
+            '?'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Act like nothing happened',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Call him a mean name',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    }, 
+    {
+        type: 'multiple-choice',
+        prompt: 'Pick up your papers',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Which are you most likely to do?',
+        options: [ 
+            'Act like nothing happened',
+            'Call him a mean name',
+            'Pick up your papers'
+        ]
+    },
+
+]
+
+var v9 = {
+    content: v9_images,
+    questions: v9_q
+} 
+
+
+var v10_text = [
+    "Imagine that you are standing on a chair in your classroom trying to hang a picture you have drawn on the wall.",
+    "A girl comes over towards you and runs into the leg of your chair. ",
+    "You slip and the picture you have worked on a long time gets ripped really badly."
+]
+
+var v10_images = [
+    'images/v10_p1.png',
+    'images/v10_p2.png',
+    'images/v10_p3.png'
+]   
+
+var v10_content = v10_text.map((text, index) => {
+    return {
+        text: text,
+        image: v10_images[index]
+    };
+});
+
+var v10_q = [
+    {
+        type: 'multiple-choice',
+        prompt: 'Based on this story, do you think the girl ran into your chair on purpose, or on accident?',
+        options: [ 
+            'Purpose',
+            'Accident',
+            '?'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Act like nothing happened',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Push the girl',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    }, 
+    {
+        type: 'multiple-choice',
+        prompt: 'Try to fix the picture',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Which are you most likely to do?',
+        options: [ 
+            'Act like nothing happened',
+            'Push the girl',
+            'Try to fix the picture'
+        ]
+    },
+
+]
+
+var v10 = {
+    content: v10_images,
+    questions: v10_q
+} 
+
+var v = [v1,v2,v3,v4,v5, v6, v7, v8, v9, v10];
 
