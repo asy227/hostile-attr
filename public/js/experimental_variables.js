@@ -590,7 +590,7 @@ var v9_text = [
 ]
 
 var v9_images = [
-    'images/v9_p1.png',
+    'images/v9_p1.jpg',
     'images/v9_p2.png',
     'images/v9_p3.png'
 ]   
