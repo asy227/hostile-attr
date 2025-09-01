@@ -1,5 +1,6 @@
 ﻿# **Hostile Attribution Bias Task**
 Part of the Childhood Environment, Emotions, and Social Engagement (ChEESE) research team under Dr. Danming An at Lehigh University's Psychology Dept.  
+  
 Collaborator: Keith Kreschollek  
 
 This application is meant to measure how children attribute the behaviors of others and their use of hostile attributions to interpret behaviors. The children are read 10 vignettes, which include illustrations for the child to look at. Each vignette asks the child to imagine they are in a certain social situation in which another child engages with them in some form of social behavior.  
@@ -19,3 +20,4 @@ This project was built with the following main libraries and tools:
 - [AWS SDK for JavaScript (v3)](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/) — For securely uploading participant audio/video data to AWS S3  
 - [uuid](https://www.npmjs.com/package/uuid) — Generate unique participant identifiers  
 - [csv-parser](https://www.npmjs.com/package/csv-parser), [csv-parse](https://csv.js.org/parse/), [csv-stringify](https://csv.js.org/stringify/) — Data handling and CSV export
+
