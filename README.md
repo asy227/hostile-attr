@@ -1,5 +1,5 @@
 ﻿# **Hostile Attribution Bias Task**
-Part of the Childhood Environment, Emotions, and Social Engagement (ChEESE) research team under Dr. Danming An at Lehigh University's Psychology Dept.  
+Part of the *Childhood Environment, Emotions, and Social Engagement* (*ChEESE*) research team under Dr. Danming An at Lehigh University's Psychology Dept.  
   
 Collaborator: Keith Kreschollek  
 
@@ -20,4 +20,5 @@ This project was built with the following main libraries and tools:
 - [AWS SDK for JavaScript (v3)](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/) — For securely uploading participant audio/video data to AWS S3  
 - [uuid](https://www.npmjs.com/package/uuid) — Generate unique participant identifiers  
 - [csv-parser](https://www.npmjs.com/package/csv-parser), [csv-parse](https://csv.js.org/parse/), [csv-stringify](https://csv.js.org/stringify/) — Data handling and CSV export
+
 
