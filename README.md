@@ -6,4 +6,5 @@ This application is meant to measure how children attribute the behaviors of oth
   
 For example, one vignette asks them to imagine they are carrying a lunch tray when suddenly another child bumps into their arm and you spill all your food. The child is then asked if they feel the behavior was on purpose or on accident, what the other child would likely do next, and how they themselves would react in the situation. The children’s answers are audio and video recorded for later transcription and data analysis.
   
-This application was developed using jsPsych, a JavaScript library for creating behavioral experiments in a web browser. The experiment uses plugins such as 'HtmlKeyboardResponse', 'HtmlButtonResponse', 'HtmlAudioResponse', and custom image-based response types to present vignettes, record audio, and capture children’s responses.
+This application was developed using jsPsych, a JavaScript library for creating behavioral experiments in a web browser. The experiment uses plugins such as `HtmlKeyboardResponse`, `HtmlButtonResponse`, `HtmlAudioResponse`, and custom image-based response types to present vignettes, record audio, and capture children’s responses.
+
