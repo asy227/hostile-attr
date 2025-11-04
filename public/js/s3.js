@@ -36,7 +36,7 @@ async function uploadData(userUUID,csvString) {
     }
 }
 
-async function uploadAudio(userUUID,trialIndex,base64) {
+async function uploadAudio(participantID,trialIndex,base64) {
 
     console.log("In Upload data: " + userUUID);
     const data = {
@@ -46,7 +46,7 @@ async function uploadAudio(userUUID,trialIndex,base64) {
     };
 
     try {
-        const response = await fetch('/upload/data/audio', {
+        const response = await fetch('/upload/audio', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

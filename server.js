@@ -7,6 +7,7 @@ const csv = require('csv-parser'); // CSV parser for handling CSV files
 const { stringify } = require('csv-stringify/sync'); // Library for converting back to CSV
 const { v4: uuidv4 } = require('uuid'); // UUID library
 const { Upload } = require("@aws-sdk/lib-storage");
+require('dotenv').config();
 
 
 
@@ -14,11 +15,21 @@ const { Upload } = require("@aws-sdk/lib-storage");
 const app = express();
 const port = process.env.PORT || 3000;
 
+// const s3 = new S3Client({
+//     region: 'us-east-2' // Specify your region
+// });
+
+// const bucketName = 'cheeselehigh';
+
 const s3 = new S3Client({
-    region: 'us-east-2' // Specify your region
+    region: process.env.AWS_REGION,
+    credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    },
 });
 
-const bucketName = 'cheeselehigh';
+const bucketName = process.env.BUCKET_NAME;
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -45,15 +56,17 @@ app.listen(port, () => {
 
 // Handle video upload
 app.post('/upload/video', async (req, res) => {
-    const video_dir = req.body.userUUID + '/';
-    const fileName = video_dir + `recorded-video-${Date.now()}.webm`; // Generate a unique file name
+    const userUUID = req.headers['x-user-uuid'] || 'unknownUUID';
+    const participantID = req.headers['x-participant-id'] || 'noID';
+    const video_dir = `${userUUID}/`;
+    const fileName = `${video_dir}recorded-video-${participantID}.webm`;
 
     try {
         const params = {
             Bucket: bucketName,
             Key: fileName,
-            Body: req.body,
-            ContentType: 'video/webm', // Change this if your video is in a different format
+            Body: req.body, // binary data
+            ContentType: 'video/webm',
         };
 
         const data = await s3.send(new PutObjectCommand(params));
@@ -62,6 +75,33 @@ app.post('/upload/video', async (req, res) => {
         console.error('Error uploading video:', err);
         res.status(500).json({ error: 'Error uploading video', details: err });
     }
+});
+
+app.post('/upload/audio', async (req, res) => {
+  const userUUID = req.body.userUUID || 'unknownUUID';
+  const trialIndex = req.body.trialIndex || 'noIndex';
+  const base64Data = req.body.base64.replace(/^data:audio\/wav;base64,/, '');
+  const audioBuffer = Buffer.from(base64Data, 'base64');
+
+  const fileName = `${userUUID}/${trialIndex}.wav`;
+
+  try {
+    const params = {
+      Bucket: bucketName,
+      Key: fileName,
+      Body: audioBuffer,
+      ContentType: 'audio/wav',
+    };
+
+    const data = await s3.send(new PutObjectCommand(params));
+
+    console.log('Uploading to S3:', fileName); //DEBUGGING
+
+    res.json({ message: 'Audio uploaded successfully', data });
+  } catch (err) {
+    console.error('Error uploading audio:', err);
+    res.status(500).json({ error: 'Error uploading audio', details: err.message });
+  }
 });
 
 app.post('/upload/data', async (req, res) => {
@@ -101,29 +141,29 @@ app.post('/upload/data', async (req, res) => {
     }
 });
 
-app.post('/upload/data/audio', async (req, res) => {
-    const data_dir = `${req.body.userUUID}/`;
-    const fileName = data_dir + `${req.body.trialIndex}.wav`;
+// app.post('/upload/data/audio', async (req, res) => {
+//     const data_dir = `${req.body.userUUID}/`;
+//     const fileName = data_dir + `${req.body.trialIndex}.wav`;
 
-    try {
-        // Decode base64 audio data
-        const base64Data = req.body.base64.replace(/^data:audio\/wav;base64,/, '');
-        const audioBuffer = Buffer.from(base64Data, 'base64');
+//     try {
+//         // Decode base64 audio data
+//         const base64Data = req.body.base64.replace(/^data:audio\/wav;base64,/, '');
+//         const audioBuffer = Buffer.from(base64Data, 'base64');
 
-        const params = {
-            Bucket: bucketName,
-            Key: fileName,
-            Body: audioBuffer,
-            ContentType: 'audio/wav',
-        };
+//         const params = {
+//             Bucket: bucketName,
+//             Key: fileName,
+//             Body: audioBuffer,
+//             ContentType: 'audio/wav',
+//         };
 
-        const data = await s3.send(new PutObjectCommand(params));
-        res.json({ message: 'Data uploaded successfully', data });
-    } catch (err) {
-        console.error('Error uploading data:', err);
-        res.status(500).json({ error: 'Error uploading data', details: err.message });
-    }
-});
+//         const data = await s3.send(new PutObjectCommand(params));
+//         res.json({ message: 'Data uploaded successfully', data });
+//     } catch (err) {
+//         console.error('Error uploading data:', err);
+//         res.status(500).json({ error: 'Error uploading data', details: err.message });
+//     }
+// });
 
 app.post('/upload/data/video', async (req, res) => {
 

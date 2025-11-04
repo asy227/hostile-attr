@@ -77,6 +77,15 @@
     </style>
 </head>
 <body>
+    <!-- Participant ID Entry Page -->
+    <div class="container" id="participant-page">
+    <h2>Enter Participant ID</h2>
+    <p>Please enter your 3-digit participant ID to begin.</p>
+    <input type="number" id="participant-id" min="000" max="999" placeholder="e.g., 123" style="width:100%; padding:8px;">
+    <button id="start-btn" style="margin-top:10px;">Start Experiment</button>
+    <p id="error-msg" style="color:red;"></p>
+    </div>
+
     <div class="container" id="jspsych-target">
         <h1 class="title">What would you do?</h1>
     </div>
@@ -103,24 +112,35 @@
             }
         }
 
-        function handleStop() {
+        async function handleStop() {
             const recordedBlob = new Blob(recordedChunks, { type: 'video/webm' });
             const videoUrl = URL.createObjectURL(recordedBlob);
 
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = videoUrl;
-            console.log("Downloading this video... " + videoUrl);
-            var subjID = 'defaultID'; // Replace this with actual participantID if available
-            a.download = 'recorded-video' + subjID + '.webm';
-            document.body.appendChild(a);
-            a.click();
+            // Create filename that includes participant ID
+            const subjID = participantID || 'defaultID';
+            const fileName = `recorded-video-${subjID}.webm`;
 
-            window.URL.revokeObjectURL(videoUrl);
+            console.log("Uploading video to server:", fileName);
+
+            // Create form data to send binary + metadata
+            const arrayBuffer = await recordedBlob.arrayBuffer();
+            const binaryData = new Uint8Array(arrayBuffer);
+
+            // Send to backend
+            const response = await fetch('/upload/video', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/octet-stream',
+                    'x-user-uuid': uuidStr,         // custom header or pass in body
+                    'x-participant-id': subjID
+                },
+                body: binaryData
+            });
+
+            const result = await response.json();
+            console.log("Upload response:", result);
+
             recordedChunks = [];
-            console.log("STOP HANDLED!");
-
-            uploadVideo(uuidStr,recordedBlob);
         }
 
         function stopRecording() {
@@ -240,12 +260,37 @@
 
         // Initialize JsPsych with the dynamically generated timeline
         const jsPsych = initJsPsych({
-          display_element: 'jspsych-target', 
+        display_element: 'jspsych-target',
         });
 
-        
+        let participantID = null;
+        jsPsych.data.addProperties({ participantID: participantID });
 
-        jsPsych.run(timeline)
+        // Wait for user to enter ID before running jsPsych
+        document.getElementById('start-btn').addEventListener('click', () => {
+        const input = document.getElementById('participant-id').value.trim();
+        const errorMsg = document.getElementById('error-msg');
+
+        if (/^\d{3}$/.test(input)) {
+            participantID = parseInt(input, 10);
+            console.log("Participant ID:", participantID);
+
+            // Hide participant entry, show jsPsych container
+            document.getElementById('participant-page').style.display = 'none';
+            document.getElementById('jspsych-target').style.display = 'block';
+
+            // Start the experiment
+            jsPsych.run(timeline);
+
+            jsPsych.onFinish(() => {
+            console.log("Experiment finished — stopping recording...");
+            stopRecording();
+            });
+            
+        } else {
+            errorMsg.textContent = "Please enter a valid 3-digit ID (e.g., 123).";
+        }
+        });
     </script>
 </body>
 </html>
