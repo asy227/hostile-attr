@@ -87,20 +87,20 @@ var v1_q = [
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be angry if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very angry'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
     {
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very upset'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
 
@@ -197,20 +197,20 @@ var v2_q = [
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be angry if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very angry'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
     {
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very upset'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
 ]
@@ -307,20 +307,20 @@ var v3_q = [
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be angry if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very angry'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
     {
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very upset'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
 ]
@@ -417,20 +417,20 @@ var v4_q = [
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be angry if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very angry'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
     {
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very upset'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
 
@@ -528,20 +528,20 @@ var v5_q = [
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be angry if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very angry'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
     {
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very upset'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
 
@@ -641,20 +641,20 @@ var v6_q = [
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be angry if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very angry'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
     {
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very upset'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
 ]
@@ -751,20 +751,20 @@ var v7_q = [
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be angry if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very angry'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
     {
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very upset'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
 
@@ -862,20 +862,20 @@ var v8_q = [
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be angry if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very angry'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
     {
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very upset'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
 
@@ -974,20 +974,20 @@ var v9_q = [
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be angry if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very angry'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
     {
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very upset'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
 
@@ -1086,20 +1086,20 @@ var v10_q = [
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be angry if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very angry'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
     {
         type: 'multiple-choice',
         prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
         options: [ 
-            'Not at all',
-            'Probably not',
-            'Maybe',
-            'Very upset'
+            'No',
+            'Maybe no',
+            'Maybe yes',
+            'Yes'
         ]
     },
 
