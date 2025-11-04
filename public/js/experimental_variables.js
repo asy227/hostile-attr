@@ -31,6 +31,24 @@ var v1_q = [
     },
     {
         type: 'multiple-choice',
+        prompt: 'Do you think his drink spilled because he wanted to make fun of you?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Do you think it\'s your fault his drink spilled on you because you were in his way?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
         prompt: 'Ignore it',
         options: [ 
             'No',
@@ -63,6 +81,26 @@ var v1_q = [
             'Ignore it',
             'Say something mean',
             'Ask a teacher for a towel'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be angry if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very angry'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very upset'
         ]
     },
 
@@ -103,6 +141,24 @@ var v2_q = [
     },
     {
         type: 'multiple-choice',
+        prompt: 'Do you think she hit you because she wanted to annoy and injure you?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Do you think she hit you because you are in the way and annoying?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
         prompt: 'Ignore it',
         options: [ 
             'No',
@@ -135,6 +191,26 @@ var v2_q = [
             'Ignore it',
             'Hit her back',
             'Fetch ice for the swelling'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be angry if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very angry'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very upset'
         ]
     },
 ]
@@ -175,6 +251,24 @@ var v3_q = [
     },
     {
         type: 'multiple-choice',
+        prompt: 'Do you think he was being mean and jealous and wanted to ruin your shoes?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Do you people will think you\'re too clumsy and dirty?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
         prompt: 'Ignore it and walk away',
         options: [ 
             'No',
@@ -207,6 +301,26 @@ var v3_q = [
             'Ignore it and walk away',
             'Push the boy in the mud',
             'Clean off your shoes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be angry if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very angry'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very upset'
         ]
     },
 ]
@@ -247,6 +361,24 @@ var v4_q = [
     },
     {
         type: 'multiple-choice',
+        prompt: 'Do you think she was being jealous and nasty and wanted to ruin your project?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Do you think it\'s because you\'re a bad artist and she wanted to make fun of you?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
         prompt: 'Pretend like notihng happened',
         options: [ 
             'No',
@@ -279,6 +411,26 @@ var v4_q = [
             'Pretend like nothing happened',
             'Spill paint on the girl',
             'Try to fix the project'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be angry if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very angry'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very upset'
         ]
     },
 
@@ -320,6 +472,24 @@ var v5_q = [
     },
     {
         type: 'multiple-choice',
+        prompt: 'Do you think he did that because he wanted to hurt you?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Do you think it\'s because you look bad when you run?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
         prompt: 'Ignore it and walk away',
         options: [ 
             'No',
@@ -352,6 +522,26 @@ var v5_q = [
             'Ignore it and walk away',
             'Say something mean to him',
             'Get band-aids for your knee'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be angry if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very angry'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very upset'
         ]
     },
 
@@ -395,6 +585,24 @@ var v6_q = [
     },
     {
         type: 'multiple-choice',
+        prompt: 'Do you think she did that because she\'s jealous and wanted to hurt your feelings?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Do you think it\'s because you aren\'t good at taking care of toys?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
         prompt: 'Ignore it and walk away',
         options: [ 
             'No',
@@ -427,6 +635,26 @@ var v6_q = [
             'Ignore it and walk away',
             'Warn her that you are going to hurt her',
             'Try to fix the toy'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be angry if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very angry'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very upset'
         ]
     },
 ]
@@ -467,6 +695,24 @@ var v7_q = [
     },
     {
         type: 'multiple-choice',
+        prompt: 'Do you think he did that because he wanted to fight you?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Do you think it\'s your fault because you should have paid attention?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
         prompt: 'Ignore it',
         options: [ 
             'No',
@@ -499,6 +745,26 @@ var v7_q = [
             'Ignore it',
             'Say something mean to him',
             'Ask a lunch lady to help you clean up'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be angry if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very angry'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very upset'
         ]
     },
 
@@ -540,6 +806,24 @@ var v8_q = [
     },
     {
         type: 'multiple-choice',
+        prompt: 'Do you think she did that because she is mean?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Do you think it\'s because you look stupid and annoying?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
         prompt: 'Ignore it and walk away',
         options: [ 
             'No',
@@ -572,6 +856,26 @@ var v8_q = [
             'Ignore it and walk away',
             'Splash water on her',
             'Wipe your face off'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be angry if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very angry'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very upset'
         ]
     },
 
@@ -614,6 +918,24 @@ var v9_q = [
     },
     {
         type: 'multiple-choice',
+        prompt: 'Do you think he did that because he is a bully?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Do you think it\'s because you are not a good student and people make fun of you?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
         prompt: 'Act like nothing happened',
         options: [ 
             'No',
@@ -646,6 +968,26 @@ var v9_q = [
             'Act like nothing happened',
             'Call him a mean name',
             'Pick up your papers'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be angry if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very angry'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very upset'
         ]
     },
 
@@ -688,6 +1030,24 @@ var v10_q = [
     },
     {
         type: 'multiple-choice',
+        prompt: 'Do you think she did that because she wanted to make you fall and hurt yourself?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'Do you think it\'s your fault because you should have been more careful with your picture?',
+        options: [ 
+            'No',
+            'Maybe',
+            'Yes'
+        ]
+    },
+    {
+        type: 'multiple-choice',
         prompt: 'Act like nothing happened',
         options: [ 
             'No',
@@ -720,6 +1080,26 @@ var v10_q = [
             'Act like nothing happened',
             'Push the girl',
             'Try to fix the picture'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be angry if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very angry'
+        ]
+    },
+    {
+        type: 'multiple-choice',
+        prompt: 'How likely is it that you would be upset with yourself if this happened to you?',
+        options: [ 
+            'Not at all',
+            'Probably not',
+            'Maybe',
+            'Very upset'
         ]
     },
 
