@@ -141,7 +141,7 @@ var v2_q = [
     },
     {
         type: 'multiple-choice',
-        prompt: 'Do you think she hit you because she wanted to annoy and injure you?',
+        prompt: 'Do you think she hit you because you are in the way and annoying?',
         options: [ 
             'No',
             'Maybe',
@@ -150,7 +150,7 @@ var v2_q = [
     },
     {
         type: 'multiple-choice',
-        prompt: 'Do you think she hit you because you are in the way and annoying?',
+        prompt: 'Do you think she hit you because she wanted to annoy and injure you?',
         options: [ 
             'No',
             'Maybe',
@@ -361,7 +361,7 @@ var v4_q = [
     },
     {
         type: 'multiple-choice',
-        prompt: 'Do you think she was being jealous and nasty and wanted to ruin your project?',
+        prompt: 'Do you think it\'s because you\'re a bad artist and she wanted to make fun of you?',
         options: [ 
             'No',
             'Maybe',
@@ -370,7 +370,7 @@ var v4_q = [
     },
     {
         type: 'multiple-choice',
-        prompt: 'Do you think it\'s because you\'re a bad artist and she wanted to make fun of you?',
+        prompt: 'Do you think she was being jealous and nasty and wanted to ruin your project?',
         options: [ 
             'No',
             'Maybe',
@@ -585,7 +585,7 @@ var v6_q = [
     },
     {
         type: 'multiple-choice',
-        prompt: 'Do you think she did that because she\'s jealous and wanted to hurt your feelings?',
+        prompt: 'Do you think it\'s because you aren\'t good at taking care of toys?',
         options: [ 
             'No',
             'Maybe',
@@ -594,7 +594,7 @@ var v6_q = [
     },
     {
         type: 'multiple-choice',
-        prompt: 'Do you think it\'s because you aren\'t good at taking care of toys?',
+        prompt: 'Do you think she did that because she\'s jealous and wanted to hurt your feelings?',
         options: [ 
             'No',
             'Maybe',
@@ -806,7 +806,7 @@ var v8_q = [
     },
     {
         type: 'multiple-choice',
-        prompt: 'Do you think she did that because she is mean?',
+        prompt: 'Do you think it\'s because you look stupid and annoying?',
         options: [ 
             'No',
             'Maybe',
@@ -815,7 +815,7 @@ var v8_q = [
     },
     {
         type: 'multiple-choice',
-        prompt: 'Do you think it\'s because you look stupid and annoying?',
+        prompt: 'Do you think she did that because she is mean?',
         options: [ 
             'No',
             'Maybe',
@@ -1030,7 +1030,7 @@ var v10_q = [
     },
     {
         type: 'multiple-choice',
-        prompt: 'Do you think she did that because she wanted to make you fall and hurt yourself?',
+        prompt: 'Do you think it\'s your fault because you should have been more careful with your picture?',
         options: [ 
             'No',
             'Maybe',
@@ -1039,7 +1039,7 @@ var v10_q = [
     },
     {
         type: 'multiple-choice',
-        prompt: 'Do you think it\'s your fault because you should have been more careful with your picture?',
+        prompt: 'Do you think she did that because she wanted to make you fall and hurt yourself?',
         options: [ 
             'No',
             'Maybe',
