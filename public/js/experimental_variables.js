@@ -34,7 +34,8 @@ var v1_q = [
         prompt: 'Do you think his drink spilled because he wanted to make fun of you?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -43,7 +44,8 @@ var v1_q = [
         prompt: 'Do you think it\'s your fault his drink spilled on you because you were in his way?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -144,7 +146,8 @@ var v2_q = [
         prompt: 'Do you think she hit you because you are in the way and annoying?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -153,7 +156,8 @@ var v2_q = [
         prompt: 'Do you think she hit you because she wanted to annoy and injure you?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -254,7 +258,8 @@ var v3_q = [
         prompt: 'Do you think he was being mean and jealous and wanted to ruin your shoes?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -263,7 +268,8 @@ var v3_q = [
         prompt: 'Do you people will think you\'re too clumsy and dirty?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -364,7 +370,8 @@ var v4_q = [
         prompt: 'Do you think it\'s because you\'re a bad artist and she wanted to make fun of you?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -373,7 +380,8 @@ var v4_q = [
         prompt: 'Do you think she was being jealous and nasty and wanted to ruin your project?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -475,7 +483,8 @@ var v5_q = [
         prompt: 'Do you think he did that because he wanted to hurt you?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -484,7 +493,8 @@ var v5_q = [
         prompt: 'Do you think it\'s because you look bad when you run?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -588,7 +598,8 @@ var v6_q = [
         prompt: 'Do you think it\'s because you aren\'t good at taking care of toys?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -597,7 +608,8 @@ var v6_q = [
         prompt: 'Do you think she did that because she\'s jealous and wanted to hurt your feelings?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -698,7 +710,8 @@ var v7_q = [
         prompt: 'Do you think he did that because he wanted to fight you?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -707,7 +720,8 @@ var v7_q = [
         prompt: 'Do you think it\'s your fault because you should have paid attention?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -809,7 +823,8 @@ var v8_q = [
         prompt: 'Do you think it\'s because you look stupid and annoying?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -818,7 +833,8 @@ var v8_q = [
         prompt: 'Do you think she did that because she is mean?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -921,7 +937,8 @@ var v9_q = [
         prompt: 'Do you think he did that because he is a bully?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -930,7 +947,8 @@ var v9_q = [
         prompt: 'Do you think it\'s because you are not a good student and people make fun of you?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -1033,7 +1051,8 @@ var v10_q = [
         prompt: 'Do you think it\'s your fault because you should have been more careful with your picture?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
@@ -1042,7 +1061,8 @@ var v10_q = [
         prompt: 'Do you think she did that because she wanted to make you fall and hurt yourself?',
         options: [ 
             'No',
-            'Maybe',
+            'Maybe no',
+            'Maybe yes',
             'Yes'
         ]
     },
